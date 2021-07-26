@@ -74,7 +74,7 @@ $query4 =
     "SELECT name
      FROM users
      INNER JOIN orders ON (orders.user_id = users.id)
-     WHERE (TIMESTAMPDIFF(YEAR,users.birthday_at,CURDATE()) > 30) AND (orders.created_at < (NOW() - INTERVAL 6 MONTH))
+     WHERE (TIMESTAMPDIFF(YEAR,users.birthday_at,CURDATE()) > 30) AND (orders.created_at > (NOW() - INTERVAL 6 MONTH))
      GROUP BY users.name HAVING COUNT(orders.id) >= 3
      ORDER BY RAND() LIMIT 1";
 
